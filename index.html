@@ -1,0 +1,283 @@
+<!Doctype html>
+<html>
+<head>
+	<title>Task Management</title>
+	<link rel="stylesheet" href="style.css">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<!-- Popper JS -->
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+	<!-- fonawesome cdn -->
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- <a href="https://icons8.com/icon/23028/html-5"></a> -->
+	<link rel="icon" href="https://img.icons8.com/ios-filled/50/000000/portfolio.png" type="image/gif">
+
+	<!-- Below 3 Jquery Cnd -->
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+
+	<!-- JavaScript file for feedback using todolist  -->
+
+	<script src="todo.js"></script>
+
+</style>
+
+</head>
+
+<body>
+
+	<div class="container-fluid p-0 sticky-top">
+
+		<nav class="sticky-top">       
+			<ul class="top">
+
+				<li ><button class="addbtn" onclick="feed1()" id="addbtn1" style="visibility:hidden;"><b>Click To   < <i class="fa fa-plus" aria-hidden="true" style="color: cyan;"></i> >   New Task </b></button></li>
+
+				<li ><button class="addbtn" onclick="feed2()" id="addbtn2" style="display: none;" >Click To <  <i class="fa fa-plus" aria-hidden="true" style="color: cyan;"></i> >   New Task </button></li>
+
+				<li ><button class="addbtn" onclick="feed3()" id="addbtn3" style="display: none;" >Click To <  <i class="fa fa-plus" aria-hidden="true" style="color: cyan;"></i> >   New Task </button></li>
+
+				<li ><button class="addbtn" id="addbtn4" style="display: none;" >No More Additions > <i class="fa fa-plus" aria-hidden="true" style="color: cyan;"></i> < </button></li>
+
+				<li><a class="addbtn top-right" style="position: relative;
+				margin-left:980px; transition: width 2s, height 2s, transform 5s; " id="login"  data-toggle="modal" data-target="#myModal"><span style="font-weight: bolder;">Login</span></a></li>
+
+
+				<!-- The Modal -->
+				<div class="modal" id="myModal" style=" transform: (180deg)" >
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
+
+							<!-- Modal Header -->
+							<div class="modal-header">
+								<h4 class="modal-title">Close It Here >>> </h4>
+								<button type="button" class="close" data-dismiss="modal">&times;</button>
+							</div>
+
+							<!-- Modal body -->
+							<div class="modal-body" id="modalid">
+								Username:
+								<input type="text"  name="uname" required="" id="uname">&nbsp;<span id="i4" style="color:red;"></span><br/><br/>
+								<button onclick="checkCookie()" >Submit</button>
+
+							</div>
+
+							<!-- Modal footer -->
+								<!-- <div class="modal-footer">
+									<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+								</div> -->
+
+							</div>
+						</div>
+					</div>
+
+
+					<li><button class="addbtn" onclick="deletecookie()" style=" position:fixed; right: 0; visibility:hidden; " id="logout">
+						<span style="color: white;"><i class="fa fa-address-book-o" aria-hidden="true"></i>&nbsp</span>
+						<span id="user" style="margin-right: 20px; color: cyan; "></span>
+						<span style="font-weight: bolder;">Logout</span></button></li>
+
+
+
+
+					</nav>
+				</div> 
+
+				<!-- <span style="z-index: -1;position: fixed;"><img src=".jpg"></span> -->
+
+				<div id="bg">
+
+					<div class="container-fluid" style="padding: 60px 0px;">
+						<div class="row" style="margin-left: 75px;">
+
+							<!-- =============================Feed 1 =====================================-->
+							<div class="col-md-3" class="feedcontainer" style="display:none;" id="col1">
+								<h4><span id="feedid">Task1</span></h4><br>
+								<form name="toDoList" class="feedform">
+									<input type="text" name="ListItem1" placeholder="Write Something"  class="feedinputcl" id="feedinput" />
+								</form>
+
+								<div id="buttonfeed1" class="buttonfeedcl">Add</div>
+								<br/><br/>
+								<h7>Double Click To Undo and Add </h7>
+								<ol class="feedlist" id="ol1">
+									<li id="feedadd1" class="feedaddcl">Task 1</li>
+									<li id="feedadd1" class="feedaddcl">Task 2</li> </ol>
+								</div>
+
+								<div class="col-md-1"></div>
+
+								<!-- =============================Feed 2 =====================================-->
+								<div class="col-md-3" class="feedcontainer" style=" display: none;" id="col2">
+									<h4><span id="feedid1">Task2</span></h4><br>
+									<form name="toDoList" class="feedform">
+										<input type="text" name="ListItem2" placeholder="Write Something" class="feedinputcl" id="feedinput" />
+									</form>
+
+									<div id="buttonfeed2" class="buttonfeedcl">Add</div>
+									<br/><br/>
+									<h7>Double Click To Undo and Add </h7>
+									<ol class="feedlist" id="ol2">
+										<li id="feedadd2" class="feedaddcl">Task 1</li>
+										<li id="feedadd2" class="feedaddcl">Task 2</li> </ol>
+									</div>
+
+									<div class="col-md-1"></div>
+
+									<!-- =============================Feed 3 =====================================-->
+									<div class="col-md-3" class="feedcontainer" style=" display: none;" id="col3">
+										<h4><span id="feedid2">Task3</span></h4><br>
+										<form name="toDoList" class="feedform">
+											<input type="text" name="ListItem3" placeholder="Write Something" class="feedinputcl" id="feedinput" />
+										</form>
+
+										<div id="buttonfeed3" class="buttonfeedcl">Add</div>
+										<br/><br/>
+										<h7>Double Click To Undo and Add </h7>
+										<ol class="feedlist" id="ol3">
+											<li id="feedadd3" class="feedaddcl">Task 1</li>
+											<li id="feedadd3" class="feedaddcl">Task 2</li> </ol>
+										</div>
+
+										<div class="col-md-1"></div>
+									</div>
+
+								</div>
+
+							</div>
+
+							<div class="container" style="padding: 100px;" id="txtcontainer">
+								<div class="row">
+
+									<div class="col-md-12 col- sm-12  col-12">
+										<center><span id="txt">Work Space</span></center>
+									</div>
+
+								</div>
+
+							</div>
+
+
+
+							<!-- ====================== Sweet Alert ================================== -->
+							<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+							<script>
+
+								$('#addbtn1').click(function()
+								{
+
+									swal({
+										title: "Manage Your Task Here!",
+										icon:"success",
+
+									});
+								});
+
+
+					//======================================= cookies ===========================================
+
+					// ================== deletecookie ========================================
+					function deletecookie()
+					{
+						document.getElementById('modalid').style="display:block"; 
+						document.cookie = "username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+						document.getElementById('logout').style="display:none";
+						document.getElementById('addbtn1').style="display:none";
+						document.getElementById('addbtn2').style="display:none";
+						document.getElementById('addbtn3').style="display:none";
+						document.getElementById('addbtn4').style="display:none";
+
+						document.getElementById('col1').style="display:none";
+						document.getElementById('col2').style="display:none";
+						document.getElementById('col3').style="display:none";
+
+						document.getElementById('txtcontainer').style="display:block"
+						document.getElementById('txtcontainer').style="padding:100px";;
+
+						document.getElementById('login').style="display:block"; 
+						document.getElementById('login').style=" position: relative"; 
+						document.getElementById('login').style=" margin-left:1200px"; 	
+
+						document.getElementById('uname').value="";	  
+
+					}
+
+
+
+					function setCookie(cname,cvalue,exdays) {
+						var d = new Date();
+						d.setTime(d.getTime() + (exdays*24*60*60*1000));
+						var expires = "expires=" + d.toGMTString();
+						document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+					}
+
+					function getCookie(cname) {
+						var name = cname + "=";
+						var decodedCookie = decodeURIComponent(document.cookie);
+						var ca = decodedCookie.split(';');
+						for(var i = 0; i < ca.length; i++) {
+							var c = ca[i];
+							while (c.charAt(0) == ' ') {
+								c = c.substring(1);
+							}
+							if (c.indexOf(name) == 0) {
+								return c.substring(name.length, c.length);
+							}
+						}
+						return "";
+					}
+
+
+					function checkCookie() {
+
+						var user=getCookie("username");
+						
+						// if (user != "") {
+						// 	// alert("Welcome again " + user);
+						// 	document.getElementById("user").innerHTML ="<em><b><u>"+user+"</u></b></em>";
+						// }
+						 // else {
+							// alert("Login To Proceed");
+
+							user=	document.getElementById('uname').value; 
+
+							if (user == ""){
+
+								alert("Input Something");
+								exit();
+							}
+							document.getElementById("user").innerHTML ="<em><b><u>"+user+"</u></b></em>";
+
+							if (user != "" && user != null) {
+								setCookie("username", user, 30);
+							}
+						// }
+						document.getElementById('modalid').style="display:none"; 
+
+						document.getElementById('login').style="display:none"; 
+						document.getElementById('addbtn1').style="display:block";
+						document.getElementById('logout').style="display:block";
+						document.getElementById('logout').style=" position: relative"; 
+						document.getElementById('logout').style=" margin-left:850px"; 
+
+					}
+                    
+                    
+					</script>
+
+				</body>
+
+				</html>
